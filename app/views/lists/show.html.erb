@@ -14,6 +14,8 @@
   </div>
 </div>
 
+<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+
 <div class="container mt-5">
   <div class="d-flex flex-row-reverse">
     <%= link_to "Add new movie", new_list_bookmark_path(@list), class: "btn btn-outline-success btn-lg"%>

@@ -1,11 +1,7 @@
-<div
-  class="cover d-flex justify-content-center align-items-center"
-  style="
-    background-image: url('https://www.nme.com/wp-content/uploads/2020/06/Empty_cinema.jpg');
-    height: 350px;
-  "
->
-  <h1 class="text-center text-white">Bookmark your favourite movies!</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://wallpaperaccess.com/full/3590102.jpg');
+  <div class="container">
+    <h1 class="text-center">Bookmark your favourite movies!</h1>
+  </div>
 </div>
 
 <div class="container py-5">
@@ -18,7 +14,7 @@
     <% @lists.each do |list| %>
       <div class="col-12 col-sm-6 col-md-4 mb-3">
         <%= link_to list_path(list), class: "text-decoration-none" do %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('arnie.jpg') %>)">
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : asset_path('Empty_cinema.jpg') %>)">
             <%= list.name %>
           </div>
         <% end %>
@@ -26,11 +22,3 @@
     <% end %>
   </div>
 </div>
-
-<!-- app/views/articles/index.html.erb -->
-<%= cl_image_tag("bhh8ot7craulwsoiluhs",
-      width: 400, height: 300, crop: :fill) %>
-
-<!-- for face detection -->
-<%= cl_image_tag("ozyezeuu3cgcsclnni2z",
-      width: 150, height: 150, crop: :thumb, gravity: :face) %>
